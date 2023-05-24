@@ -2,7 +2,7 @@ import os
 import torch
 import torch.nn as nn
 
-MODEL_PATH = '../models/unet64.pth'
+MODEL_PATH = '../models/unet_default.pth'
 
 class Block(nn.Module):
     def __init__(self, in_channels, out_channels, down=True, act='relu', use_dropout=False):
@@ -100,5 +100,5 @@ class Unet(nn.Module):
         self.load_state_dict(torch.load(path, map_location=torch.device('cpu') if not torch.cuda.is_available() else None))
 
 
-def getModel(in_channels=3, features=64, model_path=""):
+def getModel(in_channels=3, features=64, model_path=MODEL_PATH):
     return Unet(in_channels=in_channels, features=features, model_path=model_path)

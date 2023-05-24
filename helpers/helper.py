@@ -1,7 +1,7 @@
 import math
 import numpy as np
 import cv2
-
+import matplotlib.pyplot as plt
 
 def convertRadianToDegree(angle):
     return angle * 180 / np.pi % 180
@@ -78,3 +78,7 @@ def convertXYtoHSV(label_xy):
                 label_HSV[i][j][2] = 255
     label_HSV = label_HSV.astype(np.uint8)
     return label_HSV
+
+def plot_tensor_output(output):
+    label_HSV = convertXYtoHSV(output.cpu().detach().permute(1,2,0).numpy())
+    plt.imshow(cv2.cvtColor(label_HSV, cv2.COLOR_HSV2RGB))  

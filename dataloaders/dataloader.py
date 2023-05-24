@@ -41,7 +41,7 @@ class TrainingDatasets(Dataset):
 # return dataset and dataloader    
 def getData(path_to_csv, batch_size=1):
     df = pd.read_csv(path_to_csv)
-    images = df['input_path'].values
+    images = df['image_path'].values
     labels = df['label_path'].values
     dataset = TrainingDatasets(images, labels, transform)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
