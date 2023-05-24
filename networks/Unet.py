@@ -100,5 +100,5 @@ class Unet(nn.Module):
         self.load_state_dict(torch.load(path, map_location=torch.device('cpu') if not torch.cuda.is_available() else None))
 
 
-def get_model():
-    return Unet(in_channels=3, features=64)
+def getModel(in_channels=3, features=64, model_path=""):
+    return Unet(in_channels=in_channels, features=features, model_path=model_path)
