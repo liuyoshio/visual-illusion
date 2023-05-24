@@ -37,7 +37,7 @@ def randomlyDrawLine(input, label_HSV):
 def removeWhite(input, label_HSV):
     for i in range(input.shape[0]):
         for j in range(input.shape[1]):
-            if input[i][j][0] == 255 and input[i][j][1] == 255 and input[i][j][2] == 255:
+            if input[i][j][0] >= 128 and input[i][j][1] >= 128 and input[i][j][2] >= 128:
                 label_HSV[i][j] = [0, 0, 0]
     return label_HSV
 
