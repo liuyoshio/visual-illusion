@@ -7,7 +7,7 @@ def get_device():
 
     if torch.backends.mps.is_available():
         mps_device = torch.device("mps")
-    elif torch.backends.cuda.is_available():
+    elif torch.cuda.is_available():
         mps_device = torch.device("cuda")
     
     print("Using device:", mps_device)
