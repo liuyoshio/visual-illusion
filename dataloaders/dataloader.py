@@ -2,7 +2,7 @@ import sys
 sys.path.append('../')
 
 from helpers import helper
-
+import config
 
 import cv2
 import pandas as pd
@@ -39,12 +39,12 @@ class TrainingDatasets(Dataset):
         return self.transform(image), self.transform(label_xy)
 
 # return dataset and dataloader    
-def getData(path_to_csv, batch_size=1):
+def getData(path_to_csv, batch_size=1, transform=transform, num_workers=0):
     df = pd.read_csv(path_to_csv)
     images = df['image_path'].values
     labels = df['label_path'].values
     dataset = TrainingDatasets(images, labels, transform)
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
     return dataset, dataloader
 
 

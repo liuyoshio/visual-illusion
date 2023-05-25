@@ -35,7 +35,7 @@ class VGG_conv3x3(nn.Module):
 def get_model():
     model = torchvision.models.vgg16(pretrained=True)
     model = nn.Sequential(*list(model.features.children())[:4])
-    decoder = VGG_conv3x3_xy(model)
+    decoder = VGG_conv3x3(model)
     for param in decoder.model.parameters():
         param.requires_grad = False
     return decoder

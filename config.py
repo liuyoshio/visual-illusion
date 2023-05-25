@@ -13,13 +13,18 @@ def get_device():
     print("Using device:", mps_device)
     return mps_device
 
+# Torch hyperparameters
 transform = transforms.Compose([
     transforms.ToTensor(),
 ])
+num_workers = 6
 
 # Experiment data
+LEFT_POS = 105
+RIGHT_POS = 151
 
-LEFT_POS = 0
-
-
+slash_position = {
+    "start": 50,
+    "end": 225,
+}
 

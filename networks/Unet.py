@@ -95,6 +95,7 @@ class Unet(nn.Module):
     
     def save(self, path=MODEL_PATH):
         torch.save(self.state_dict(), path)
+        print('Model saved to', path)
     
     def load(self, path=MODEL_PATH):
         print('Load model from', path)

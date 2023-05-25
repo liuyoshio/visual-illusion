@@ -18,7 +18,6 @@ def calculateDirection(p1, p2, inDegree=False):
     else:
         return radian
 
-
 # draw lines on the input image
 # calculate the direction of the line 
 # and draw the corresponding line on the label with HSV color
