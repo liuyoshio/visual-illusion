@@ -81,4 +81,9 @@ def convertXYtoHSV(label_xy):
 
 def plot_tensor_output(output):
     label_HSV = convertXYtoHSV(output.cpu().detach().permute(1,2,0).numpy())
-    plt.imshow(cv2.cvtColor(label_HSV, cv2.COLOR_HSV2RGB))  
+    plt.imshow(cv2.cvtColor(label_HSV, cv2.COLOR_HSV2RGB))
+
+
+def save_tensor_output(output, path):
+    label_HSV = convertXYtoHSV(output.cpu().detach().permute(1,2,0).numpy())
+    cv2.imwrite(path, cv2.cvtColor(label_HSV, cv2.COLOR_HSV2BGR))

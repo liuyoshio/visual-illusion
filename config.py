@@ -1,4 +1,5 @@
 import torch
+import torchvision.transforms as transforms
 
 # Returns the device to be used for training
 def get_device():
@@ -11,6 +12,14 @@ def get_device():
     
     print("Using device:", mps_device)
     return mps_device
+
+transform = transforms.Compose([
+    transforms.ToTensor(),
+])
+
+# Experiment data
+
+LEFT_POS = 0
 
 
 

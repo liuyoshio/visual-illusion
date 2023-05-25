@@ -70,7 +70,8 @@ class Unet(nn.Module):
             nn.Tanh(),
         )
         # 256x256x2
-        
+        self.model_path = model_path
+
         if os.path.exists(model_path):
             self.load()
 
@@ -98,7 +99,7 @@ class Unet(nn.Module):
     def load(self, path=MODEL_PATH):
         print('Load model from', path)
         self.load_state_dict(torch.load(path, map_location=torch.device('cpu') if not torch.cuda.is_available() else None))
+    
 
-
-def getModel(in_channels=3, features=64, model_path=MODEL_PATH):
+def get_model(in_channels=3, features=64, model_path=MODEL_PATH):
     return Unet(in_channels=in_channels, features=features, model_path=model_path)
