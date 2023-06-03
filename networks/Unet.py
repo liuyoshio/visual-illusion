@@ -93,13 +93,13 @@ class Unet(nn.Module):
         u7 = self.up7(torch.cat([u6, d2], dim=1))
         return self.final_up(torch.cat([u7, d1], dim=1))
     
-    def save(self, path=MODEL_PATH):
-        torch.save(self.state_dict(), path)
-        print('Model saved to', path)
+    def save(self):
+        torch.save(self.state_dict(), self.model_path)
+        print('Model saved to', self.model_path)
     
-    def load(self, path=MODEL_PATH):
-        print('Load model from', path)
-        self.load_state_dict(torch.load(path, map_location=torch.device('cpu') if not torch.cuda.is_available() else None))
+    def load(self):
+        print('Load model from', self.model_path)
+        self.load_state_dict(torch.load(self.model_path, map_location=torch.device('cpu') if not torch.cuda.is_available() else None))
     
     # get the base name of the model path
     # eg: '../models/unet_default.pth' -> 'unet_default'
