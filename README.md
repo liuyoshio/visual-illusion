@@ -46,11 +46,15 @@
 - Thickness ranges from 1 to 3 pixels
 - Shape: $3\times W\times H$
 
-<img src="./figures/line-direction.png">
+<img src="./figures/line-direction.png" width="400">
 
 ### Label
 - $(x,y)$ for each pixel, range from $[-1, 1]$
 - Shape: $2\times W\times H$
 
+## Testing Dataset
+<img src="./figures/experiment-dataset.png" width="600" align="center"/>
+- line thickness ranges from 1 to 3 pixels
+- 
 
 
