@@ -94,7 +94,7 @@ From the result, we are able to tell that some DNNs is fooled by Zollner illusio
   - Due to light diffraction
   - As two objects are closer, they merge into one maximum intensity
 
-<img src="./figures/zollner_illusion_theory.png">
+<img src="./figures/zollner_illusion_theory.png" width="400">
 
 ## Difference between DNN and human visual system
 
